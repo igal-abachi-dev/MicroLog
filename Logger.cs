@@ -104,7 +104,7 @@ namespace MicroLog
 
     internal class FileLogger
     {
-        private static readonly Encoding _uts8Encoder = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
+        private static readonly Encoding _utf8Encoder = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
         private readonly string _path;
 
         public FileLogger(string path = "_log.txt")
@@ -122,7 +122,7 @@ namespace MicroLog
         {
             try
             {
-                using (var sw = new StreamWriter(_path, append: true, _uts8Encoder))
+                using (var sw = new StreamWriter(_path, append: true, _utf8Encoder))
                 {
                     sw.WriteLine(msg);
                 }
